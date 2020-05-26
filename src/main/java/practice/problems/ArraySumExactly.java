@@ -7,6 +7,10 @@ import java.util.Hashtable;
 
 import static org.slf4j.LoggerFactory.getLogger;
 
+/**
+ * This problem must be tackle by the mathematical point of view instance that
+ * a programmatically point (force brute).
+ */
 public class ArraySumExactly {
 
     private static final Logger LOGGER = getLogger(ArraySumExactly.class);
@@ -16,8 +20,6 @@ public class ArraySumExactly {
 
         var targetSum = 9;
         int[] array = {2,7,6,4};
-
-        Hashtable<Integer,Boolean> y = new Hashtable<>();
 
         int[] indices = forceBruteApproach(array, targetSum);
         LOGGER.info("The indices that reach the target value are " + Arrays.toString(indices));

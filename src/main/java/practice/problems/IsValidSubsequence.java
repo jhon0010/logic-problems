@@ -17,18 +17,18 @@ public class IsValidSubsequence {
         List<Integer> subsequence = Arrays.asList(5, 1, 22, 23, 6, -1, 8, 10);
 
         var isValid = isValidSubsequence(array, subsequence);
-
         LOGGER.info("\n Is the list    = " + subsequence.toString() + " \n subsequence of = " + array.toString() + " \n = " + isValid);
-
     }
 
 
+    /**
+     * You can also solve this problem by double iteration but this increase the time complexity.
+     */
     public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) {
 
         var seqIndex = 0;
 
         for (Integer integer : array) {
-
             if (seqIndex < sequence.size() && sequence.get(seqIndex).equals(integer)) {
                 seqIndex++;
             }
@@ -36,7 +36,6 @@ public class IsValidSubsequence {
 
         System.out.println("" + seqIndex + "  " + sequence.size() + " " +  (seqIndex == sequence.size()) );
         return seqIndex == sequence.size();
-
     }
 
 }
