@@ -27,19 +27,16 @@ public class IsValidSubsequence {
 
         var seqIndex = 0;
 
-        for (int i= 0; i < array.size() ;i++) {
+        for (Integer integer : array) {
 
-            if(seqIndex == sequence.size()){ // this means that we traverse all the sequence
-                break;
-            }
-
-            if(array.get(i) == sequence.get(seqIndex)){
+            if (seqIndex < sequence.size() && sequence.get(seqIndex).equals(integer)) {
                 seqIndex++;
             }
-
         }
 
+        System.out.println("" + seqIndex + "  " + sequence.size() + " " +  (seqIndex == sequence.size()) );
         return seqIndex == sequence.size();
+
     }
 
 }

@@ -14,36 +14,36 @@ public class ArraySumExactly {
 
     public static void main(String[] args) {
 
+        var targetSum = 9;
+        int[] array = {2,7,6,4};
+
         Hashtable<Integer,Boolean> y = new Hashtable<>();
 
-        int[] indices = forceBruteApproach();
+        int[] indices = forceBruteApproach(array, targetSum);
         LOGGER.info("The indices that reach the target value are " + Arrays.toString(indices));
 
-        int[] indicesHash = hashTableSolution();
+        int[] indicesHash = hashTableSolution(array, targetSum);
         LOGGER.info("The indices that reach the target value are " + Arrays.toString(indicesHash));
 
     }
 
-    private static int[] hashTableSolution() {
 
-        var targetSum = 9;
-        int[] array = {2,7,6,4};
+    public static int[] hashTableSolution(int[] array, int targetSum) {
 
-        if(array == null || array.length == 0){
-            return new int[0];
-        }
+        Hashtable<Integer,Integer> numbers = new Hashtable<Integer, Integer>();
 
-        Hashtable<Integer,Boolean> analizedValues = new Hashtable<>();
+        for(int x: array){
 
-        for(int arrayValue : array){
+            var y = numbers.get(x);
 
-            int y = targetSum - arrayValue;
-            if(analizedValues.get(y) != null){
-                return new int[] {y, arrayValue};
-            }else {
-                analizedValues.put(arrayValue, true);
+            if(y != null){
+                return new int[] {x,y};
+            } else {
+                numbers.put(targetSum - x, x);
             }
+
         }
+
         return new int[0];
     }
 
@@ -61,14 +61,12 @@ public class ArraySumExactly {
      * Because nums[0] + nums[1] = 2 + 7 = 9,
      * return [0, 1].
      */
-    private static int[] forceBruteApproach() {
-        var target = 9;
-        int[] inputArray = {2,7,6,4};
+    private static int[] forceBruteApproach(int[] array, int targetSum) {
 
-        for(int i=0; i <= inputArray.length; i++) {
-            for(int j=0; j <= inputArray.length; j++) {
-                if(inputArray[j] == (target - inputArray[i])){
-                    return new int[] {inputArray[i],inputArray[j]};
+        for(int i=0; i <= array.length; i++) {
+            for(int j=0; j <= array.length; j++) {
+                if(array[j] == (targetSum - array[i])){
+                    return new int[] {array[i],array[j]};
                 }
             }
         }
