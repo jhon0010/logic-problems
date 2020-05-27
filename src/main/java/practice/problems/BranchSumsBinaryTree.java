@@ -14,14 +14,13 @@ public class BranchSumsBinaryTree {
 
     public static void main(String[] args) {
         BinaryTree root = BinaryTree.createBst();
-        branchSums(root);
+        List<Integer> results = branchSums(root);
+        LOGGER.info(" Binary Search sum is =  " + results.toString());
     }
 
     public static List<Integer> branchSums(BinaryTree root) {
-
         List<Integer> results = new ArrayList<>();
         recursiveSum(root, 0, results);
-        LOGGER.info(" Binary Search sum is =  " + results.toString());
         return results;
     }
 
