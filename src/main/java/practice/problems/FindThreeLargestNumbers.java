@@ -12,7 +12,8 @@ public class FindThreeLargestNumbers {
 
     public static void main(String[] args) {
         var array = new int[] {141,8,-9,-7,-21,-6};
-        LOGGER.info("Result = " + Arrays.toString(findThreeLargestNumbersShifthing(array)));
+        LOGGER.info("Result findThreeLargestNumbers = " + Arrays.toString(findThreeLargestNumbers(array)));
+        LOGGER.info("Result findThreeLargestNumbersShifthing = " + Arrays.toString(findThreeLargestNumbersShifthing(array)));
     }
 
     public static int[] findThreeLargestNumbers(int[] array) {
